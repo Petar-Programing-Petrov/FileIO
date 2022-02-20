@@ -7,6 +7,7 @@ namespace FileIO
     {
         static void Main(string[] args)
         {
+            //Created path and path2 actually pointing to the project folder where the solution is found by going 4 folders out
             string path = @"..\..\..\..\ToDo.txt";
             string path2 = @"..\..\..\..\BuisinessCard.txt";
             using (StreamWriter streamWriter = new StreamWriter(path))
@@ -14,11 +15,7 @@ namespace FileIO
                 streamWriter.WriteLine("Learning systemIO");
                 streamWriter.WriteLine("or do I ? ");
             }
-            //using (StreamReader streamReader = new StreamReader(path))
-            //{
-
-            //    Console.WriteLine(streamReader.ReadToEnd());
-            //}
+           
             BusinessCardCreator(path2);
 
             BuissinesCardReader(path2);
@@ -26,6 +23,10 @@ namespace FileIO
             BuissinesCardReader(path);
 
         }
+        /// <summary>
+        /// Method that takes a string with the path where to store the created txt file
+        /// </summary>
+        /// <param name="path"></param>
         public static void BusinessCardCreator(string path)
         {
             using (StreamWriter buisinessCard = new StreamWriter(path))
@@ -33,6 +34,10 @@ namespace FileIO
                 buisinessCard.WriteLine("This is my business card!!!");
             }
         }
+        /// <summary>
+        /// Method that takes a string with the path and reads a txt file in the given path
+        /// </summary>
+        /// <param name="path"></param>
         public static void BuissinesCardReader(string path)
         {
             using (StreamReader sr = new StreamReader(path))
